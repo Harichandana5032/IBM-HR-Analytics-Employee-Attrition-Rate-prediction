@@ -153,7 +153,7 @@ This project demonstrates how Data Analytics and Machine Learning can help organ
 
 ## Author
 
-Hari Uggu  
+Hari chandana Uggu  
 B.Tech CSE (2021–2025)
 
 ---
