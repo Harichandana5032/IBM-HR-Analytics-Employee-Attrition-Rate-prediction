@@ -150,7 +150,7 @@ Offer flexible work arrangements, enforce no-meeting days, and provide mental he
 
 ## Author
 
-Hari chandana Uguu
+Hari chandana Uggu
 **Data Analytics Intern — Elevate Labs**
 May 2025
 IBM HR Analytics Project
