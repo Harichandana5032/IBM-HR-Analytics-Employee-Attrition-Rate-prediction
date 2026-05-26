@@ -1,159 +1,162 @@
-# IBM-HR-Analytics-Employee-Attrition-Rate-prediction
-AI-powered HR Analytics project focused on predicting employee attrition using Machine Learning. Built with Python, Scikit-learn, SHAP, and Power BI to identify key attrition drivers through EDA, predictive modeling, explainable AI, and interactive dashboards for HR decision-making.
-# IBM HR Analytics — Predict Employee Attrition
+# IBM HR Analytics — Employee Attrition Prediction
 
-## Project Overview
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Sklearn](https://img.shields.io/badge/Scikit--learn-ML-orange?logo=scikit-learn)
+![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow?logo=powerbi)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
+![Status](https://img.shields.io/badge/Status-Completed-green)
 
-This project focuses on analyzing employee attrition using Machine Learning and Data Analytics techniques. The objective is to identify the major factors influencing employee resignations and build a predictive model that helps HR departments proactively retain employees.
-
-The project uses the IBM HR Analytics dataset containing employee-related information such as salary, overtime, work-life balance, job role, age, and performance metrics.
+**Elevate Labs Data Analytics Internship Project — May 2025**
 
 ---
 
 ## Problem Statement
 
-Employee attrition creates major challenges for organizations including:
+IBM Corporation is experiencing a **16.12% employee attrition rate**, with **Sales (20.63%)** and **HR (19.05%)** departments most affected. This leads to significant costs estimated at **6–9 months of salary per resignation** in recruitment, onboarding, and lost productivity.
 
-- Increased recruitment and training costs
-- Loss of experienced employees
-- Reduced productivity
-- Knowledge transfer issues
-
-The main goal of this project is to answer:
-
-> "Which employees are most likely to leave the organization, and what factors are driving attrition?"
+**This project identifies the root causes of attrition and builds a predictive model to help HR proactively retain at-risk employees.**
 
 ---
 
-## Dataset Information
+## Key Findings
 
-- Dataset: IBM HR Analytics Dataset
-- Total Records: 1,470 employees
-- Total Features: 35 columns
-- Target Variable: Attrition
-
----
-
-## Technologies Used
-
-| Technology | Purpose |
-|---|---|
-| Python | Core Programming |
-| Pandas | Data Cleaning & Analysis |
-| NumPy | Numerical Operations |
-| Matplotlib | Data Visualization |
-| Seaborn | Exploratory Data Analysis |
-| Scikit-learn | Machine Learning |
-| SMOTE | Handling Class Imbalance |
-| SHAP | Explainable AI |
-| Power BI | Dashboard Visualization |
+| Finding | Insight |
+|---------|---------|
+| **Overtime** | Employees working overtime are **4x more likely to leave** (31% vs 10%) |
+| **Salary Gap** | Leavers earned **Rs.1,600/month less** than those who stayed |
+| **Age Group** | Employees aged **20-25 show 36% attrition** — highest across all groups |
+| **Work Life Balance** | Bad WLB group has **31% attrition rate** |
 
 ---
 
-## Project Workflow
+## Tools and Technologies
 
-### 1. Data Preprocessing
-
-- Removed constant and unnecessary columns
-- Handled categorical variables using encoding
-- Feature scaling using StandardScaler
-- Data cleaning and transformation
-
-### 2. Exploratory Data Analysis (EDA)
-
-Performed business-driven analysis to identify patterns related to employee attrition.
-
-### Key Insights
-
-- Employees working overtime are more likely to leave
-- Lower salary employees show higher attrition
-- Poor work-life balance increases resignation probability
-- Young employees (20–25 age group) have the highest attrition rate
-
-### 3. Machine Learning Models
-
-The following models were trained and evaluated:
-
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Support Vector Machine (SVM)
-
-SMOTE was applied to balance the dataset before training.
+| Tool | Purpose |
+|------|---------|
+| **Python + Pandas** | Data cleaning and transformation |
+| **Seaborn + Matplotlib** | EDA visualizations |
+| **Scikit-learn** | ML models and evaluation metrics |
+| **Imbalanced-learn (SMOTE)** | Class imbalance handling |
+| **SHAP** | Explainable AI — model interpretation |
+| **Power BI** | Interactive dashboard (2 pages) |
+| **Streamlit** | Live prediction web application |
 
 ---
 
 ## Model Performance
 
-| Model | Accuracy | Recall |
-|---|---|---|
-| Logistic Regression + SMOTE | 87% | 54% |
-| Decision Tree + SMOTE | 77% | 44% |
-| Random Forest + SMOTE | 88% | 28% |
-| SVM + SMOTE | 88% | 51% |
+| Model | Accuracy | Recall | Selected |
+|-------|----------|--------|----------|
+| **Logistic Regression + SMOTE** | **87%** | **54%** | **Yes** |
+| SVM + SMOTE | 88% | 51% | No |
+| Random Forest + SMOTE | 88% | 28% | No |
+| Decision Tree + SMOTE | 77% | 44% | No |
 
-### Best Model
+**Why Recall over Accuracy?**
 
-Logistic Regression with SMOTE was selected as the final model due to its better recall score for identifying at-risk employees.
-
----
-
-## SHAP Explainability
-
-SHAP values were used to explain model predictions and identify the most influential features affecting attrition.
-
-### Important Factors
-
-- Overtime
-- Monthly Income
-- Work-Life Balance
-- Job Level
-- Total Working Years
+Missing an at-risk employee (False Negative) is far more costly than a false alarm (False Positive). Every missed prediction equals 6–9 months salary in rehiring costs. Logistic Regression with SMOTE achieved the highest Recall (54%) and was selected as the final model.
 
 ---
 
-## Power BI Dashboard
+## Project Structure
 
-An interactive dashboard was developed to visualize:
-
-- Overall Attrition Rate
-- Department-wise Attrition
-- Salary Analysis
-- Overtime Impact
-- Age Group Analysis
-
----
-
-## Business Recommendations
-
-Based on the analysis, the following strategies are recommended:
-
-- Reduce excessive overtime workload
-- Improve salary structures
-- Introduce employee wellness programs
-- Improve work-life balance policies
-- Provide mentorship for younger employees
+```
+HR_Attrition_Project/
+├── hr_attrition_analysis.ipynb          # Main analysis notebook
+├── app.py                                # Streamlit prediction app
+├── model.pkl                             # Saved Logistic Regression model
+├── scaler.pkl                            # Saved StandardScaler
+├── WA_Fn-UseC_-HR-Employee-Attrition.csv # IBM HR Dataset
+├── hr_dashboard.pbix                     # Power BI dashboard
+├── HR_Attrition_Report.pdf               # 2-page project report
+└── README.md                             # This file
+```
 
 ---
 
-## Future Improvements
+## How to Run
 
-- Real-time HR system integration
-- Periodic model retraining
-- Employee sentiment analysis
-- Deployment as a web application
+**1. Clone the repository**
+```bash
+git clone https://github.com/Harichandana5032/hr-attrition-prediction.git
+cd hr-attrition-prediction
+```
+
+**2. Install dependencies**
+```bash
+pip install pandas numpy scikit-learn imbalanced-learn shap streamlit matplotlib seaborn
+```
+
+**3. Run Jupyter Notebook**
+```bash
+jupyter notebook hr_attrition_analysis.ipynb
+```
+
+**4. Run Streamlit App**
+```bash
+streamlit run app.py
+```
 
 ---
 
-## Conclusion
+## Project Workflow
 
-This project demonstrates how Data Analytics and Machine Learning can help organizations proactively reduce employee attrition. By identifying high-risk employees early, HR departments can take preventive measures and improve employee retention strategies.
+```
+IBM HR Dataset (1,470 employees)
+         |
+  Data Cleaning and Preprocessing
+  (Encoding + Scaling + Feature Selection)
+         |
+  Exploratory Data Analysis
+  (5 Business-Driven Charts + Insights)
+         |
+  Machine Learning Model
+  (Logistic Regression + SMOTE)
+         |
+  SHAP Analysis
+  (Feature Importance + Individual Explanations)
+         |
+  Power BI Dashboard + Streamlit App
+  (Interactive Visualization + Live Prediction)
+```
+
+---
+
+## HR Recommendations
+
+Based on the analysis, the following interventions are recommended:
+
+**1. Reduce Overtime**
+Implement predictive scheduling and enforce mandatory pre-approvals for extra hours. Cross-train staff to distribute workloads evenly.
+
+**2. Fix Salary Gaps**
+Conduct quarterly compensation benchmarking and introduce structured hike and bonus policies, especially for lower salary bands.
+
+**3. Retain Young Talent**
+Introduce mentorship programs and fast-track career development paths for employees aged 20–25.
+
+**4. Improve Work Life Balance**
+Offer flexible work arrangements, enforce no-meeting days, and provide mental health support to prevent burnout.
+
+---
+
+## Dataset
+
+- **Source:** IBM HR Analytics Employee Attrition Dataset — Kaggle
+- **Size:** 1,470 employees x 35 features
+- **Target Variable:** Attrition (Yes/No) — 16.12% positive class
 
 ---
 
 ## Author
 
-Hari chandana Uggu  
-B.Tech CSE (2021–2025)
+Hari chandana Uguu
+**Data Analytics Intern — Elevate Labs**
+May 2025
+IBM HR Analytics Project
 
 ---
+
+## License
+
+This project is for educational purposes as part of the Elevate Labs Data Analytics Internship Program.
